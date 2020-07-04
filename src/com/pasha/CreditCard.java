@@ -17,15 +17,6 @@ public class CreditCard extends Card {
         super(name);
     }
 
-    /*@Override
-    public BigDecimal refill(BigDecimal money) throws NotPositiveValueException {
-        if (money.compareTo(zero) == -1 || money.compareTo(zero) == 0){
-            throw new NotPositiveValueException();
-        }
-        this.balance = this.balance.add(money);
-        return this.balance;
-    }*/
-
     @Override
     public BigDecimal withdrawal(BigDecimal money) throws NotPositiveValueException {
         if (money.compareTo(zero) == -1 || money.compareTo(zero) == 0){
