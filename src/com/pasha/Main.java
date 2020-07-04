@@ -1,7 +1,7 @@
-package com.pashaCompany;
+package com.pasha;
 
-import Exceptions.NotEnoughMoneyException;
-import Exceptions.NotPositiveValueException;
+import exceptions.NotEnoughMoneyException;
+import exceptions.NotPositiveValueException;
 
 import java.math.BigDecimal;
 

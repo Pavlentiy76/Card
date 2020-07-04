@@ -1,7 +1,7 @@
-package Tests;
+package tests;
 
-import Exceptions.NotPositiveValueException;
-import com.pashaCompany.CreditCard;
+import exceptions.NotPositiveValueException;
+import com.pasha.CreditCard;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +22,20 @@ public class CreditCardTest {
     @After
     public void tearDown() throws Exception {
         creditCard = null;
+    }
+
+    @Test
+    public void refill() {
+        BigDecimal actual = creditCard.refill(BigDecimal.valueOf(5));
+        BigDecimal expected = BigDecimal.valueOf(10);
+        assertEquals(actual, expected);
+    }
+
+    @Test(expected = NotPositiveValueException.class)
+    public void refillNotPositive() {
+        BigDecimal actual = creditCard.refill(BigDecimal.valueOf(-4));
+        BigDecimal expected = BigDecimal.valueOf(5);
+        assertEquals(actual,expected);
     }
 
     @Test

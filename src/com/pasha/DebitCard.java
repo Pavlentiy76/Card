@@ -1,39 +1,33 @@
-package com.pashaCompany;
+package com.pasha;
 
-import Exceptions.NotEnoughMoneyException;
-import Exceptions.NotPositiveValueException;
+import exceptions.NotEnoughMoneyException;
+import exceptions.NotPositiveValueException;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Card {
-
-    protected String name;
-    protected BigDecimal balance;
+public class DebitCard extends Card {
 
     BigDecimal zero = BigDecimal.valueOf(0);
 
-    public Card(String name, BigDecimal balance){
-        this.name = name;
-        this.balance = balance;
+    public DebitCard(String name, BigDecimal balance) {
+        super(name, balance);
     }
 
-    public Card(String name){
-        this.name = name;
+    public DebitCard(String name) {
+        super(name);
     }
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public BigDecimal refill(BigDecimal money) throws NotPositiveValueException{
+    /*@Override
+    public BigDecimal refill(BigDecimal money) throws NotPositiveValueException {
         if (money.compareTo(zero) == -1 || money.compareTo(zero) == 0){
             throw new NotPositiveValueException();
         }
         this.balance = this.balance.add(money);
         return this.balance;
-    }
+    }*/
 
+    @Override
     public BigDecimal withdrawal(BigDecimal money)throws NotEnoughMoneyException, NotPositiveValueException {
         if (money.compareTo(zero) == -1 || money.compareTo(zero) == 0){
             throw new NotPositiveValueException();
@@ -44,6 +38,7 @@ public class Card {
         }else throw new NotEnoughMoneyException();
     }
 
+    @Override
     public BigDecimal withdrawalOtherCurrency(BigDecimal money)throws NotEnoughMoneyException, NotPositiveValueException {
         BigDecimal course = BigDecimal.valueOf(2.41);
         if (money.compareTo(zero) == -1 || money.compareTo(zero) == 0){
@@ -56,29 +51,23 @@ public class Card {
     }
 
     @Override
-    public String toString() {
-        return "Card{" +
-                "name='" + name + '\'' +
-                ", balance=" + balance +
-                ", zero=" + zero +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Card card = (Card) o;
-        return Objects.equals(name, card.name) &&
-                Objects.equals(balance, card.balance) &&
-                Objects.equals(zero, card.zero);
+        if (!super.equals(o)) return false;
+        DebitCard debitCard = (DebitCard) o;
+        return Objects.equals(zero, debitCard.zero);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, balance, zero);
+        return Objects.hash(super.hashCode(), zero);
     }
 
-
+    @Override
+    public String toString() {
+        return "DebitCard{" +
+                "zero=" + zero +
+                '}';
+    }
 }
-

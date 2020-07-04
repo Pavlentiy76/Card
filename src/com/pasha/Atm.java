@@ -1,4 +1,4 @@
-package com.pashaCompany;
+package com.pasha;
 
 import java.math.BigDecimal;
 
