@@ -1,4 +1,4 @@
-package com.pasha;
+package com.pasha.main;
 
 import java.math.BigDecimal;
 

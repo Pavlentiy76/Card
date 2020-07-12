@@ -1,6 +1,6 @@
-package com.pasha;
+package com.pasha.main;
 
-import exceptions.NotPositiveValueException;
+import com.pasha.exceptions.NotPositiveValueException;
 
 import java.math.BigDecimal;
 import java.util.Objects;

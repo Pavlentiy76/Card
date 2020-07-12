@@ -1,7 +1,7 @@
-package com.pasha;
+package com.pasha.main;
 
-import exceptions.NotEnoughMoneyException;
-import exceptions.NotPositiveValueException;
+import com.pasha.exceptions.NotEnoughMoneyException;
+import com.pasha.exceptions.NotPositiveValueException;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -30,8 +30,8 @@ public abstract class Card {
         if (money.compareTo(zero) == -1 || money.compareTo(zero) == 0){
             throw new NotPositiveValueException();
         }
-        this.balance = this.balance.add(money);
-        return this.balance;
+        balance = balance.add(money);
+        return balance;
     }
 
     public abstract BigDecimal withdrawal(BigDecimal money)throws NotEnoughMoneyException, NotPositiveValueException;
@@ -60,5 +60,6 @@ public abstract class Card {
                 ", balance=" + balance +
                 '}';
     }
+
 }
 

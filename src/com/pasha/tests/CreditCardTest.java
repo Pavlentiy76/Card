@@ -1,7 +1,7 @@
-package tests;
+package com.pasha.tests;
 
-import exceptions.NotPositiveValueException;
-import com.pasha.CreditCard;
+import com.pasha.exceptions.NotPositiveValueException;
+import com.pasha.main.CreditCard;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,8 +1,8 @@
-package tests;
+package com.pasha.tests;
 
-import exceptions.NotEnoughMoneyException;
-import exceptions.NotPositiveValueException;
-import com.pasha.DebitCard;
+import com.pasha.exceptions.NotEnoughMoneyException;
+import com.pasha.exceptions.NotPositiveValueException;
+import com.pasha.main.DebitCard;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

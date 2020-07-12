@@ -1,4 +1,4 @@
-package exceptions;
+package com.pasha.exceptions;
 
 public class NotEnoughMoneyException extends RuntimeException {
 
